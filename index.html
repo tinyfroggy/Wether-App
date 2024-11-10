@@ -7,9 +7,9 @@
   <link href="./src/output.css" rel="stylesheet">
   <title>Weather App</title>
 </head>
-<body class="relative">
+<body>
   <!-- select city -->
-  <select id="city-select"  class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-12 text-center rounded-md" onchange="wetherCity(this.value)">
+  <select id="city-select"  class="absolute top-2 w-screen bg-slate-400 sm:bg-white sm:top-10 left-1/2 transform -translate-x-1/2 sm:w-32 h-12 text-center rounded-md" onchange="wetherCity(this.value)">
     <option value="Jeddah" selected>Jeddah</option>
     <option value="Riyadh">Riyadh</option>
     <option value="Dammam">Dammam</option>
@@ -19,7 +19,7 @@
   <!-- end select city -->
 
   <!-- container cards -->
-  <div id="container-cards" class="bg-slate-400 h-full w-full grid grid-cols-2 grid-rows-3 gap-20 sm:gap-10 sm:h-screen sm:flex items-center p-2">
+  <div id="container-cards" class="bg-slate-400 h-full w-full grid grid-cols-2 grid-rows-3 mt-16 sm:mt-0 gap-20 sm:gap-10 sm:h-screen sm:flex items-center p-2">
     <!-- cards -->  
   </div>
   <!-- end container cards -->
