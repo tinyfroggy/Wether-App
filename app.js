@@ -1,9 +1,9 @@
 const apiKey = '82c94835cb3a436b815907f62836deca';
-const city = 'Jeddah';
-const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKey}&lang=en`;
+let city = 'Jeddah';
 const cardContainer = document.getElementById('container-cards');
 
 async function getWeatherInformation() {
+  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKey}&lang=en`;
   const response = await fetch(url);
   const json = await response.json();
   const data = json.data
@@ -27,13 +27,13 @@ async function displayWeatherInformation() {
       <!-- card -->
         <div class=" bg-slate-50 w-32 sm:w-48 h-96 p-1 sm:p-2 rounded-md">
         <!-- card location -->
-          <div class=" bg-slate-600 text-white flex items-center justify-center h-11 mb-3 rounded-2xl ">
+          <div class="text-black font-bold flex items-center justify-center h-11 mb-3 ">
             <h1>${city}</h1>
         </div>
       <!-- end card location -->
 
       <!-- card icon -->
-        <div class="bg-gray-300 flex flex-col items-center justify-center mb-3 rounded-md">
+        <div class= "flex flex-col items-center justify-center mb-3 ">
           <img src="https://www.weatherbit.io/static/img/icons/${today.weather.icon}.png" alt="${today.weather.description}">
           <h3 class="font-bold text-2xl">${today.temp}C</h3>
         </div>
@@ -65,5 +65,16 @@ async function displayWeatherInformation() {
   }
 }
 
-cardContainer.innerHTML = ''
-displayWeatherInformation()
+document.addEventListener('DOMContentLoaded', function() {
+  const citySelect = document.getElementById('city-select');
+  citySelect.value = 'Jeddah'; 
+});
+
+async function wetherCity(cityName) {
+  city = cityName; 
+  cardContainer.innerHTML = '';
+  displayWeatherInformation(); 
+}
+
+cardContainer.innerHTML = '';
+displayWeatherInformation();
